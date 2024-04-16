@@ -1,0 +1,39 @@
+$color: #EDF5E1;
+
+body{
+    background-color: springgreen;
+}
+.loginHeader{
+    color: $color;
+    text-align: center;
+    font-family: "Jersey 10", sans-serif;
+    font-size: 100px;
+    font-style: normal;
+}
+.loginDiv{
+    
+    background-color: $color;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    display: flex;
+    width: 290px;
+    height: 290px;
+}
+.loginRegisterButton{
+    background-color: springgreen;
+    color: $color;
+    font-family: "Jersey 10", sans-serif;
+    font-style: normal;
+    font-size: larger;
+}
+.loginRegisterButton:hover{
+    background-color: black;
+    transition: 0.5s;    
+}
+.loginInput{
+    border: 1px solid black;
+}
+
+  
