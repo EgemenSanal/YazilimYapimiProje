@@ -2,3 +2,31 @@ $color: #EDF5E1;
 body{
     background-color: springgreen;
 }
+.loginRegisterDiv{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    width: 290px;
+}
+.header {
+    font-family: "Jersey 20", sans-serif;
+    text-align: center;
+    font-weight: 400;
+    font-style: normal;
+    color: $color;
+    font-size: 250px;
+  }
+  .buttonClass{
+    font-family: "Jersey 20", sans-serif;
+    text-align: center;
+    font-style: normal;
+    background-color: $color;
+  }
+    .buttonClass:hover{
+        background-color: springgreen;
+        transition: 0.5s;
+    }
+
