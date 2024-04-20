@@ -11,33 +11,48 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jersey+10&family=Jersey+10+Charted&family=Jersey+20&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        #hero {
+            position: relative;
+        }
+
+        #hero video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+    </style>
 </head>
 <body>
+    <div id="hero">
+       <video autoplay loop muted>
+            <source src="2646392-hd_1920_1080_30fps.mp4">        
+       </video>
+    </div>
     <h1 class="header">REGISTER</h1>
     <div class="container d-flex align-items-center justify-content-center">
-    <form>
-        <div class="form-group">
-            <label for="exampleInputEmail1">Mail</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            
-        </div>
-        <div class="form-group">
-            <label for="exampleInputEmail1">Maili Dogrula</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            
-        </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Sifre</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
-        </div>
-        <br>
-        <div class="container d-flex align-items-center justify-content-center">
-        <button type="submit" class="buttonClass">Kayit Ol</button>
-        
-        </div>
-
-
-    </form>
+        <form>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Mail</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Maili Dogrula</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Sifre</label>
+                <input type="password" class="form-control" id="exampleInputPassword1">
+            </div>
+            <br>
+            <div class="container d-flex align-items-center justify-content-center">
+                <button type="submit" class="buttonClass">Kayit Ol</button>
+            </div>
+        </form>
     </div>
 </body>
 </html>
