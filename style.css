@@ -18,9 +18,9 @@ margin{margin: 0;padding: 0;}
 
 .header {
   font-family: "Jersey 20", sans-serif;
-  text-align: center;
   font-weight: 400;
   font-style: normal;
+  text-align: center;
   color: #EDF5E1;
   font-size: 150px; }
 
@@ -35,3 +35,6 @@ margin{margin: 0;padding: 0;}
   transition: 0.5s; }
 
 
+  
+   
+  
