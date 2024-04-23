@@ -40,6 +40,7 @@ submit.addEventListener("click",function(event){
   .then((userCredential) => {
     // Signed up 
     const user = userCredential.user;
+    window.location.href = "onaylama.html"
     // ...
   })
   .catch((error) => {
