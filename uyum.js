@@ -3,9 +3,14 @@ document.getElementById("passwordForm").addEventListener("submit", function(even
     var password2 = document.getElementById("password2").value;
 
     if (password1 !== password2) {
-        alert("Şifreler eşleşmiyor. Lütfen aynı şifreyi girin.");
-        event.preventDefault(); 
+        alert("Şifreler uyuşmuyor.");
+        event.preventDefault(); // Prevent form submission
     } else {
-        alert("Şifreler eşleşti. Artık giriş yapabilirsiniz.");
+        if (password1.length < 6 || password1.length > 20) {
+            alert("Şifre 6 ile 20 karakter arasında olmalıdır.");
+            event.preventDefault(); // Prevent form submission
+        } else {
+            alert("Giriş başarılı!");
+        }
     }
 });
