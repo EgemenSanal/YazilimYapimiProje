@@ -2,10 +2,12 @@ document.getElementById("passwordForm").addEventListener("submit", function(even
     var password1 = document.getElementById("password1").value;
     var password2 = document.getElementById("password2").value;
 
-    if (password1 !== password2) {
-        alert("Şifreler eşleşmiyor. Lütfen aynı şifreyi girin.");
-        event.preventDefault(); 
-    } else {
-        alert("Şifreler eşleşti. Artık giriş yapabilirsiniz.");
+    if(password1!==password2){
+        alert("şfreler uyuşmuyor");
+        
+    }else{
+        if(password1<6||password1>20){
+            alert("şifre 6 ile 20 karakter arasında olmalıdır");
+        }
     }
 });
