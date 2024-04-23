@@ -41,5 +41,20 @@ margin{margin: 0;padding: 0;}
 
 
   
-   
-  
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+
+.header2 {
+  color: #EDF5E1;
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
