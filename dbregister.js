@@ -1,6 +1,8 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
 
 import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
+import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
+
 
 
 
@@ -27,20 +29,28 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-
+const db = getDatabase(app);
 
 const submit = document.getElementById('submit');
 
 submit.addEventListener("click",function(event){
     
+  set(ref(db,'user/' + document.getElementById('username').value), {
+    username : document.getElementById('username').value,
+    email : document.getElementById('exampleInputEmail1').value
+  })
+
     const username = document.getElementById('username').value;
     const email = document.getElementById('exampleInputEmail1').value;
     const password = document.getElementById('exampleInputPassword1').value;
+
+
+
     createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     // Signed up 
     const user = userCredential.user;
-    window.location.href = "onaylama.html"
+    window.location.href = "onaylama.html";
     // ...
   })
   .catch((error) => {
