@@ -13,6 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+  
     <title>GIRIS BASARILI</title>
     <style>
         video {
@@ -25,7 +26,9 @@
             z-index: -1;
         }
     </style>
+      <script type="module" src="dblogin.js" defer></script>
 </head>
+
 <body>
     <video autoplay loop muted>
         <source src="2646392-hd_1920_1080_30fps.mp4">        
@@ -39,12 +42,11 @@
                 </span>
           </a>
           <h1 class="header2" data-bs-toggle="collapse" style="font-size: 25px;">TEST YOUR ENGLISH</h1>
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand" href="#" id="logout">
             <span class="material-symbols-outlined">
                 logout
                 </span>
           </a>
-          
           <div class="dropdown-menu" aria-labelledby="setting-icon">
             <a class="dropdown-item" href="#">KELIME EKLEME</a>
             <div class="dropdown-divider"></div>
@@ -52,6 +54,7 @@
           </div>
         </div>
       </nav>
+      
       <script src="dropdown.js"></script>
 </body>
 </html>
