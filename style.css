@@ -147,3 +147,10 @@ margin{margin: 0;padding: 0;}
   padding: 20px;
   text-align: center;
 }
+.lowerleft {
+    margin-bottom: 1px;
+    margin-left : 1px;
+    color: springgreen;
+    position: fixed;
+    bottom: 0;
+}
