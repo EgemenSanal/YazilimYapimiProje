@@ -2,7 +2,22 @@ const kelimeler = [
     {
         ingilizce : "apple",
         turkce : "elma",
-        resim : "apple.jpg"
+        resim : "pictures/apple.jpg"
+    },
+    {
+        ingilizce : "school",
+        turkce : "okul",
+        resim : "pictures/school.jpg"
+    },
+    {
+        ingilizce : "phone",
+        turkce : "telefon",
+        resim : "pictures/phone.jpg"
+    },
+    {
+        ingilizce : "book",
+        turkce : "kitap",
+        resim : "pictures/book.jpg"
     }
 ];
 let siradakiKelimeIndeksi = 0;
@@ -12,21 +27,31 @@ const ingKelime = document.getElementById('ingilizce');
 const resimList = document.getElementById('resimList');
 const turkceKelime = document.getElementById('turkce');
 
-buton.addEventListener("click", function() {
+buton.addEventListener("click", function(event) {
+    event.preventDefault();
     const kelime = kelimeler[siradakiKelimeIndeksi];
-  
-    const kelimeElemani = document.createElement("div");
+
+    const kelimeElemani = document.createElement('kelime-ingilizce');
+    const kelimeElemani2 = document.createElement('kelime-turkce');
+    const kelimeElemani3 = document.createElement('kelime-resim');
     kelimeElemani.innerHTML = `
-      <img src="${kelime.resim}" alt="${kelime.ingilizce}">
-      <p>${kelime.ingilizce}</p>
-      <p>${kelime.turkce}</p>
-    `;
-  
-    const kelimelerListesi = document.getElementById("kelimeler-listesi");
+    <h4>${kelime.ingilizce}</h4>
+  `;
+  kelimeElemani2.innerHTML = `
+    <p>${kelime.turkce}</p>
+  `;
+  kelimeElemani3.innerHTML = `
+  <img src="${kelime.resim}" alt="${kelime.ingilizce}" class="card-img-top">
+  `;
+    const kelimelerListesi = document.getElementById('cardID');
     kelimelerListesi.innerHTML = ""; // Önceki kelimeyi temizleyin
+    kelimelerListesi.appendChild(kelimeElemani3);
     kelimelerListesi.appendChild(kelimeElemani);
+    kelimelerListesi.appendChild(kelimeElemani2);
+    
+
   
-    siradakiKelimeIndeksi = (siradakiKelimeIndeksi + 1) % kelimeler.length; // Sıradaki indeksi güncelleyin
+    siradakiKelimeIndeksi = (siradakiKelimeIndeksi + 1) % kelimeler.length;
   });
   
 

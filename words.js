@@ -7,32 +7,43 @@ const kelimeler = [
     {
         ingilizce : "school",
         turkce : "okul",
-        resim : "pictures/apple.jpg"
+        resim : "pictures/school.jpg"
     },
     {
         ingilizce : "phone",
         turkce : "telefon",
-        resim : "pictures/apple.jpg"
+        resim : "pictures/phone.jpg"
     },
     {
         ingilizce : "book",
         turkce : "kitap",
-        resim : "pictures/apple.jpg"
+        resim : "pictures/book.jpg"
     }
 ];
 let siradakiKelimeIndeksi = 0;
+let baslangicKelimeIndeksi = 0;
+
 const buton = document.getElementById('anladim');
 
 const ingKelime = document.getElementById('ingilizce');
 const resimList = document.getElementById('resimList');
 const turkceKelime = document.getElementById('turkce');
 
-buton.addEventListener("click", function() {
+buton.addEventListener("click", function(event) {
+  if (siradakiKelimeIndeksi === kelimeler.length - 1) {
+    buton.style.display = "none";
+  }
+    event.preventDefault();
     const kelime = kelimeler[siradakiKelimeIndeksi];
-  
+
     const kelimeElemani = document.createElement('kelime-ingilizce');
     const kelimeElemani2 = document.createElement('kelime-turkce');
     const kelimeElemani3 = document.createElement('kelime-resim');
+    const kelimelerListesi = document.getElementById('cardID');
+    kelimelerListesi.innerHTML = ""; // Önceki kelimeyi temizleyin
+    kelimelerListesi.appendChild(kelimeElemani3);
+  kelimelerListesi.appendChild(kelimeElemani);
+  kelimelerListesi.appendChild(kelimeElemani2);
     kelimeElemani.innerHTML = `
     <h4>${kelime.ingilizce}</h4>
   `;
@@ -42,11 +53,11 @@ buton.addEventListener("click", function() {
   kelimeElemani3.innerHTML = `
   <img src="${kelime.resim}" alt="${kelime.ingilizce}" class="card-img-top">
   `;
-    const kelimelerListesi = document.getElementById('cardID');
-    kelimelerListesi.innerHTML = ""; // Önceki kelimeyi temizleyin
-    kelimelerListesi.appendChild(kelimeElemani3);
-    kelimelerListesi.appendChild(kelimeElemani);
-    kelimelerListesi.appendChild(kelimeElemani2);
+  
+  kelimelerListesi.innerHTML = ""; // Önceki kelimeyi temizleyin
+  kelimelerListesi.appendChild(kelimeElemani3);
+  kelimelerListesi.appendChild(kelimeElemani);
+  kelimelerListesi.appendChild(kelimeElemani2);
     
 
   
@@ -73,7 +84,7 @@ kelimeler.forEach(kelime => {
   resimList.appendChild(kelimeElemani3);
 
 });
-
+//kelime ekleme fonksiyonu
 function kelimeEkle(ingilizce, turkce, resimDosyasi) {
     //dogrulama yapma
     if (!ingilizce || !turkce || !resimDosyasi) {
