@@ -33,8 +33,12 @@ const db = getDatabase(app);
 
 const submit = document.getElementById('submit');
 
+const username = document.getElementById('username').value;
+
 submit.addEventListener("click",function(event){
     
+  //gerekli kullanici bilgilerini database'e kaydetme
+
   set(ref(db,'user/' + document.getElementById('username').value), {
     username : document.getElementById('username').value,
     email : document.getElementById('exampleInputEmail1').value
