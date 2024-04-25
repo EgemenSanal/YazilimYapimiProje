@@ -49,9 +49,20 @@
                 </span>
           </a>
           <div class="dropdown-menu" aria-labelledby="setting-icon">
-            <a class="dropdown-item" href="#">KELIME EKLEME</a>
+            <a class="dropdown-item kelime-ekleme-link" href="#">KELIME EKLEME</a>
+            <div class="dropdown-divider"></div>
+            <div class="kelime-ekleme-formu hidden">
+                <form>
+                    <label for="kelime">KELİME GİRİNİZ:</label><br>
+                    <input type="text" id="kelime" name="kelime"><br>
+                    <label for="ingilizce">İNGİLİZCE ANLAMI:</label><br>
+                    <input type="text" id="ingilizce" name="ingilizce"><br><br>
+                    <input type="submit" value="GÖNDER">
+                </form>
+            </div>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">KELIME SAYISI GİRİNİZ</a>
+        </div>       
           </div>
         </div>
       </nav>
