@@ -42,26 +42,33 @@
                 settings
                 </span>
           </a>
-          <h1 class="header2" data-bs-toggle="collapse" style="font-size: 25px;">INGILIZCE KELIME OGREN</h1>
+          <h1 class="header2" data-bs-toggle="collapse" style="font-size: 25px;">
+          <a href="app.html" class="header3">INGILIZCE KELIME OGREN</a>
+        </h1>
           <a class="navbar-brand" href="index.html" id="logout">
             <span class="material-symbols-outlined">
                 logout
                 </span>
           </a>
           <div class="dropdown-menu" aria-labelledby="setting-icon">
-            <a class="dropdown-item kelime-ekleme-link" href="#">KELIME EKLEME</a>
-            <div class="dropdown-divider"></div>
-            <div class="kelime-ekleme-formu hidden">
-                <form>
-                    <label for="kelime">KELİME GİRİNİZ:</label><br>
-                    <input type="text" id="kelime" name="kelime"><br>
-                    <label for="ingilizce">İNGİLİZCE ANLAMI:</label><br>
-                    <input type="text" id="ingilizce" name="ingilizce"><br><br>
-                    <input type="submit" value="GÖNDER">
-                </form>
+            <div>
+              <div class="d-flex align-items-center justify-content-center">
+                <h6 class="header3">YENI KELIME EKLE</h6>
+              </div>
+              <form action="/filter" method="post">
+                <div class="form-group">
+                  <label for="yeniingilizcekelime" style="color: springgreen;">Ingilizce Kelime</label>
+                  <input type="text" id="yeniingilizcekelime">
+                  <label for="turkcekarsiligi" style="color: springgreen;">Turkce Karsiligi</label>
+                  <input type="text" id="turkcekarsiligi">
+
+                </div>
+                <div class="d-flex align-items-center justify-content-center">
+                  <button type="submit" class="buttonClass">KAYDET</button>
+                </div>
+              </form>
             </div>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">KELIME SAYISI GİRİNİZ</a>
+            
         </div>       
           </div>
         </div>

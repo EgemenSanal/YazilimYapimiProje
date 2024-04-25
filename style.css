@@ -58,6 +58,13 @@ margin{margin: 0;padding: 0;}
   font-weight: 400;
   font-style: normal;
 }
+.header3 {
+  color: #EDF5E1;
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200pxpx;
+  font-style: normal;
+}
 #setting-icon {
   position: relative;
 }
@@ -117,3 +124,26 @@ margin{margin: 0;padding: 0;}
   right: 10px;
 }
 
+.settings {
+  filter: blur(6px);
+  
+  height: 100%;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.text {
+  background-color: rgba(0, 0, 0, 0.4); /* Black partially transparent background */
+  color: white;
+  font-weight: bold;
+  border: 3px solid #ffffff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  padding: 20px;
+  text-align: center;
+}
