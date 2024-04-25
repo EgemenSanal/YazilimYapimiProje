@@ -43,7 +43,7 @@
                 </span>
           </a>
           <h1 class="header2" data-bs-toggle="collapse" style="font-size: 25px;">
-          <a href="app.html" class="header3">INGILIZCE KELIME OGREN</a>
+          <a href="app.html" id="anaSayfayaDon" class="header3">INGILIZCE KELIME OGREN</a>
         </h1>
           <a class="navbar-brand" href="index.html" id="logout">
             <span class="material-symbols-outlined">
@@ -55,18 +55,20 @@
               <div class="d-flex align-items-center justify-content-center">
                 <h6 class="header3">YENI KELIME EKLE</h6>
               </div>
-              <form action="/filter" method="post">
+              <form>
                 <div class="form-group">
                   <label for="yeniingilizcekelime" style="color: springgreen;">Ingilizce Kelime</label>
                   <input type="text" id="yeniingilizcekelime">
                   <label for="turkcekarsiligi" style="color: springgreen;">Turkce Karsiligi</label>
                   <input type="text" id="turkcekarsiligi">
+                  <label for="sentences" style="color: springgreen;">Kelimeyi Iceren Cumleler Ekle</label>
+                  <input  type="text" maxlength="50" id="sentences">
                   <label for="myFile" style="color: springgreen;">Resim</label>
                   <input type="file" id="myFile" name="fileName">
-
+                  
                 </div>
                 <div class="d-flex align-items-center justify-content-center">
-                  <button type="submit" class="buttonClass">KAYDET</button>
+                  <button type="submit" id="kelimeEkle" class="buttonClass">KAYDET</button>
                 </div>
               </form>
             </div>
@@ -81,7 +83,7 @@
           <div class="card-body">
             <h4 id="ingilizce" class="card-title">INGILIZCE KELIME OGREN</h4>
             <p id="turkce" class="card-text">ASAGIDAKI BUTONA TIKLAYARAK OGRENMEYE BASLAYABILIRSIN</p>
-            
+            <p2 id="cumle" class="card-text"></p2>
           </div>
         </div>
       </div>
