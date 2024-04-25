@@ -28,6 +28,7 @@
     </style>
       <script type="module" src="dblogin.js" defer></script>
       <script type="module" src="addWords.js" defer></script>
+      
 </head>
 
 <body>
@@ -55,7 +56,20 @@
           </div>
         </div>
       </nav>
-      
+      <div class="d-flex align-items-center justify-content-center">
+        <div id="cardID" class="card" style="width:400px;">
+          <img id="resimList" class="card-img-top" alt="LEARN WORDS">
+          <div class="card-body">
+            <h4 id="ingilizce" class="card-title"></h4>
+            <p id="turkce" class="card-text"></p>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <button id="anladim" class="buttonClass">ANLADIM</button>
+      </div>
+        <div class="d-flex align-items-center justify-content-center" id="kelime-listesi" style="color: white;"></div>
       <script src="dropdown.js"></script>
 </body>
+<script src="words.js"></script>
 </html>
