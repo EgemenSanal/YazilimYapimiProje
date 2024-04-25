@@ -65,25 +65,7 @@ buton.addEventListener("click", function(event) {
   });
   
 
-kelimeler.forEach(kelime => {
-  const kelimeElemani = document.createElement('kelime-ingilizce');
-  const kelimeElemani2 = document.createElement('kelime-turkce');
-  const kelimeElemani3 = document.createElement('kelime-resim');
 
-  kelimeElemani.innerHTML = `
-    <h4>${kelime.ingilizce}</h4>
-  `;
-  kelimeElemani2.innerHTML = `
-    <p>${kelime.turkce}</p>
-  `;
-  kelimeElemani3.innerHTML = `
-  <img src="${kelime.resim}" alt="${kelime.ingilizce}" class="card-img-top">
-  `;
-  ingKelime.appendChild(kelimeElemani);
-  turkceKelime.appendChild(kelimeElemani2);
-  resimList.appendChild(kelimeElemani3);
-
-});
 //kelime ekleme fonksiyonu
 function kelimeEkle(ingilizce, turkce, resimDosyasi) {
     //dogrulama yapma
