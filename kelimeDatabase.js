@@ -32,7 +32,8 @@ const db = getDatabase(app);
 
 
 const kelimeEklebutton = document.getElementById('kelimeEkle');
-var sayac = 1;
+var sayac = 14;
+localStorage.setItem('sayac', sayac);
 sayac = JSON.parse(localStorage.getItem('sayac'));
 
 kelimeEklebutton.addEventListener('click',function(event){
