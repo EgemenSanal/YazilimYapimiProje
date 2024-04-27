@@ -1,3 +1,5 @@
+
+//kelime ekleme butonu icin dropdown menu 
 document.getElementById('setting-icon').addEventListener('click', function() {
     var dropdownMenu = document.querySelector('.dropdown-menu');
     dropdownMenu.classList.toggle('show');

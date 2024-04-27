@@ -1,9 +1,12 @@
+//Databaseden gerekli bilgileri importlama
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
 
 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
 
 
 
+//database configi
 
 const firebaseConfig = {
 
@@ -24,23 +27,23 @@ const firebaseConfig = {
 };
 
 
-// Initialize Firebase
+// Firebase'i baslatma
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 
 const submit = document.getElementById('girisButon');
-
+//kullanici giris yaptigi zaman databaseden sorgulatma
 submit.addEventListener("click",function(event){
     const email = document.getElementById('exampleInputEmail1').value;
     const password = document.getElementById('exampleInputPassword1').value;
     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      // Signed in 
+      // kullanici giris yapti
+      
       const user = userCredential.user;
-      window.location.href = "app.html";
-      // ...
+      window.location.href = "app.html"; //kullaniciyi uygulama sayfasina gonder
     })
     .catch((error) => {
       const errorCode = error.code;
