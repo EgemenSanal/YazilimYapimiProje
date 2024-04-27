@@ -35,6 +35,7 @@ var sayac3 = 1;
 var dogru = 0;
 var yanlis = 0;
 devamButton.addEventListener('click',function(event){
+  const girilenValue = document.getElementById('sinavInput').value;
     const dbRef = ref(db);
     get(child(dbRef,'words/' + sayac3)).then((snapshot) =>{
         if(snapshot.exists()){
@@ -53,11 +54,6 @@ devamButton.addEventListener('click',function(event){
             kelimeElemani.innerHTML = `
     <h4>${snapshot.val().ingKelime}</h4>
   `;
-  kelimeElemani2.innerHTML = `
-  <div class="d-flex align-items-center justify-content-center">
-        <input type="text" id="sinavInput" placeholder="TURKCE KARSILIGI">
-      </div>
-`;
 kelimeElemani4.innerHTML = `
   <img src="${snapshot.val().resimUrl}" alt="${snapshot.val().ingKelime}" class="card-img-top">
   `;
@@ -69,7 +65,7 @@ kelimelerListesi.appendChild(kelimeElemani4);
 
 
   
-if(document.getElementById('sinavInput').value == snapshot.val().turkceKarsiligi){
+if(girilenValue == snapshot.val().turkceKarsiligi){
     dogru = dogru +1;
 }else{
     yanlis = yanlis +1;
@@ -78,6 +74,7 @@ if(document.getElementById('sinavInput').value == snapshot.val().turkceKarsiligi
   sayac3 = sayac3+1;
         }else{
             alert('Dogru sayisi = ' + dogru + ' Yanlis sayisi = ' + yanlis);
+            window.location.href = "app.html";
         }
     })
 })
