@@ -52,9 +52,13 @@ kelimeEklebutton.addEventListener('click',function(event){
 });
 
 const kelimeGetir = document.getElementById('anladim');
+const kelimeInput = document.getElementById('kelimeSayisi');
+
 
 var sayac2 = 1;
 kelimeGetir.addEventListener('click',function(event){
+  const kelimeSayi = parseInt(document.getElementById('kelimeSayisi').value) + 1;
+  kelimeInput.style.display = "none";
     const dbRef = ref(db);
     get(child(dbRef,'words/' + sayac2)).then((snapshot) =>{
         if(snapshot.exists()){
@@ -88,12 +92,16 @@ kelimelerListesi.appendChild(kelimeElemani4);
   kelimelerListesi.appendChild(kelimeElemani2);
   kelimelerListesi.appendChild(kelimeElemani3);
   
-
+  if(sayac2 == kelimeSayi){
+    alert('Kelimeler Bitti');
+    window.location.href = "app.html";
+  }
 
   
   sayac2 = sayac2+1;
+  
         }else{
-            alert('KELIME YOK!')
+            alert('KELIME YOK!' + kelimeSayi);
         }
     })
     
