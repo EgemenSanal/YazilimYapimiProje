@@ -20,7 +20,8 @@ margin{margin: 0;padding: 0;}
   text-align: center;
   margin: auto;
   width: 290px; }
-
+  
+/*header elemanlari icin genel header style'i */
 .header {
   font-family: "Jersey 20", sans-serif;
   font-weight: 400;
@@ -29,6 +30,7 @@ margin{margin: 0;padding: 0;}
   color: #EDF5E1;
   font-size: 150px; }
 
+/* buton elemanlari icin genel buton style'i*/
 .buttonClass {
   font-family: "Jersey 20", sans-serif;
   text-align: center;
