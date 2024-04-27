@@ -1,9 +1,12 @@
+//Databaseden gerekli bilgileri importlama
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
 
 import { getAuth} from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
 import { getDatabase, ref, set, get, child, onValue} from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
 
 
+//database configi
 
 
 const firebaseConfig = {
@@ -24,6 +27,7 @@ const firebaseConfig = {
 
 };
 
+// Firebase'i baslatma
 
 
 const app = initializeApp(firebaseConfig);
@@ -38,10 +42,13 @@ const devamInput = document.getElementById('sinavInput');
 
 var dogru = 0;
 var yanlis = 0;
+//sinav modulu
+//kelimeleri tek tek getiren modul
 devamButton.addEventListener('click',function(event){
-    const dbRef = ref(db);
+    const dbRef = ref(db); //kelimelerin saklandigi dizinin referansi
     get(child(dbRef,'words/' + sayac3)).then((snapshot) =>{
         if(snapshot.exists()){
+           // kelimelerin gelecegi html elemanlarini yaratma
             const kelimeElemani = document.createElement('kelime-ingilizce');
             const kelimeElemani2 = document.createElement('kelime-turkceGiri');
             const kelimeElemani3 = document.createElement('kelime-cumle');

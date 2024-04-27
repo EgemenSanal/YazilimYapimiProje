@@ -1,3 +1,5 @@
+//giris modulu icin kontrol yapan fonksiyon
+
 document.getElementById("passwordForm").addEventListener("submit", function(event) {
     var password1 = document.getElementById("password1").value;
     var password2 = document.getElementById("password2").value;
