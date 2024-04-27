@@ -1,9 +1,12 @@
+//Databaseden gerekli bilgileri importlama
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
 
 import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
 import { getDatabase, ref, set, get, child, onValue} from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
 
 
+//database configi
 
 
 const firebaseConfig = {
@@ -24,7 +27,7 @@ const firebaseConfig = {
 
 };
 
-
+// Firebase'i baslatma
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
@@ -32,12 +35,12 @@ const db = getDatabase(app);
 
 
 const kelimeEklebutton = document.getElementById('kelimeEkle');
-var sayac = 14;
-localStorage.setItem('sayac', sayac);
+var sayac = 14; //default olarak bulunun 13 kelime uzerine kelime eklemek icin gereken sayac
+localStorage.setItem('sayac', sayac); //sayac degerini localStorage'a kaydetmek(sayfa yenilenince degerin kaybolmamasi gerekiyor)
 sayac = JSON.parse(localStorage.getItem('sayac'));
 
 kelimeEklebutton.addEventListener('click',function(event){
-    
+    //girilen kelimeyi database'e kaydetme
     set(ref(db,'words/' + sayac), {
         ingKelime : document.getElementById('yeniingilizcekelime').value,
         turkceKarsiligi : document.getElementById('turkcekarsiligi').value,
@@ -52,12 +55,17 @@ kelimeEklebutton.addEventListener('click',function(event){
 });
 
 const kelimeGetir = document.getElementById('anladim');
+const kelimeInput = document.getElementById('kelimeSayisi');
 
+//Databasedeki kelimeleri getiren modul
 var sayac2 = 1;
 kelimeGetir.addEventListener('click',function(event){
+  const kelimeSayi = parseInt(document.getElementById('kelimeSayisi').value) + 1;
+  kelimeInput.style.display = "none";
     const dbRef = ref(db);
     get(child(dbRef,'words/' + sayac2)).then((snapshot) =>{
         if(snapshot.exists()){
+           // kelimelerin gelecegi html elemanlarini yaratma
             const kelimeElemani = document.createElement('kelime-ingilizce');
             const kelimeElemani2 = document.createElement('kelime-turkce');
             const kelimeElemani3 = document.createElement('kelime-cumle');
@@ -88,12 +96,16 @@ kelimelerListesi.appendChild(kelimeElemani4);
   kelimelerListesi.appendChild(kelimeElemani2);
   kelimelerListesi.appendChild(kelimeElemani3);
   
-
+  if(sayac2 == kelimeSayi){
+    alert('Kelimeler Bitti');
+    window.location.href = "app.html";
+  }
 
   
   sayac2 = sayac2+1;
+  
         }else{
-            alert('KELIME YOK!')
+            alert('KELIME YOK!' + kelimeSayi);
         }
     })
     

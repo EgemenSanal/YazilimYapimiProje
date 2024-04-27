@@ -1,3 +1,4 @@
+//Databaseden gerekli bilgileri importlama
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
 
 import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
@@ -5,7 +6,7 @@ import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/fireb
 
 
 
-
+//database configi
 const firebaseConfig = {
 
   apiKey: "AIzaSyB1T5KUM_bnOcJIV6XB8Ml6zXYxqKzDYHE",
@@ -25,7 +26,7 @@ const firebaseConfig = {
 };
 
 
-// Initialize Firebase
+// Firebase'i baslatma
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
@@ -49,18 +50,16 @@ submit.addEventListener("click",function(event){
     const password = document.getElementById('exampleInputPassword1').value;
 
 
-
+  //kullaniciyi olusturma
     createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
-    // Signed up 
+    // kullanici olusturuldu
     const user = userCredential.user;
-    window.location.href = "onaylama.html";
-    // ...
+    window.location.href = "onaylama.html"; //kullaniciyi onaylama sayfasina gonderme
   })
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
-    // ..
   });
   event.preventDefault();
 })

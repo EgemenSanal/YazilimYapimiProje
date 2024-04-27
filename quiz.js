@@ -1,9 +1,12 @@
+//Databaseden gerekli bilgileri importlama
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
 
-import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
+import { getAuth} from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
 import { getDatabase, ref, set, get, child, onValue} from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
 
 
+//database configi
 
 
 const firebaseConfig = {
@@ -24,6 +27,7 @@ const firebaseConfig = {
 
 };
 
+// Firebase'i baslatma
 
 
 const app = initializeApp(firebaseConfig);
@@ -32,12 +36,19 @@ const db = getDatabase(app);
 
 const devamButton = document.getElementById('next');
 var sayac3 = 1;
+
+const girilenValue = document.getElementById('sinavInput').value;
+const devamInput = document.getElementById('sinavInput');
+
 var dogru = 0;
 var yanlis = 0;
+//sinav modulu
+//kelimeleri tek tek getiren modul
 devamButton.addEventListener('click',function(event){
-    const dbRef = ref(db);
+    const dbRef = ref(db); //kelimelerin saklandigi dizinin referansi
     get(child(dbRef,'words/' + sayac3)).then((snapshot) =>{
         if(snapshot.exists()){
+           // kelimelerin gelecegi html elemanlarini yaratma
             const kelimeElemani = document.createElement('kelime-ingilizce');
             const kelimeElemani2 = document.createElement('kelime-turkceGiri');
             const kelimeElemani3 = document.createElement('kelime-cumle');
@@ -53,23 +64,18 @@ devamButton.addEventListener('click',function(event){
             kelimeElemani.innerHTML = `
     <h4>${snapshot.val().ingKelime}</h4>
   `;
-  kelimeElemani2.innerHTML = `
-  <div class="d-flex align-items-center justify-content-center">
-        <input type="text" id="sinavInput" placeholder="TURKCE KARSILIGI">
-      </div>
-`;
 kelimeElemani4.innerHTML = `
   <img src="${snapshot.val().resimUrl}" alt="${snapshot.val().ingKelime}" class="card-img-top">
   `;
-
-kelimelerListesi.innerHTML = ""; // Önceki kelimeyi temizleyin
-kelimelerListesi.appendChild(kelimeElemani4);
+  devamInput.style.display = "block";
+  kelimelerListesi.innerHTML = ""; // Önceki kelimeyi temizleyin
+  kelimelerListesi.appendChild(kelimeElemani4);
   kelimelerListesi.appendChild(kelimeElemani);
   kelimelerListesi.appendChild(kelimeElemani2);
 
 
   
-if(document.getElementById('sinavInput').value == snapshot.val().turkceKarsiligi){
+if(girilenValue == snapshot.val().turkceKarsiligi){
     dogru = dogru +1;
 }else{
     yanlis = yanlis +1;
@@ -78,6 +84,7 @@ if(document.getElementById('sinavInput').value == snapshot.val().turkceKarsiligi
   sayac3 = sayac3+1;
         }else{
             alert('Dogru sayisi = ' + dogru + ' Yanlis sayisi = ' + yanlis);
+            window.location.href = "app.html";
         }
     })
 })

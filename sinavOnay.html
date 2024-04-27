@@ -24,7 +24,6 @@
             z-index: -1;
         }
     </style>
-    <script type="module" src="quiz.js" defer></script>
 </head>
 <body>
     <video autoplay loop muted>
@@ -55,20 +54,25 @@
       </nav>
       <div class="d-flex align-items-center justify-content-center">
         <div id="cardID" class="card" style="width:400px">
-          <img id="resimList" class="card-img-top" src="" alt="Card image">
+          <img id="resimList" class="card-img-top" src="https://media.istockphoto.com/id/1186386668/vector/quiz-in-comic-pop-art-style-quiz-brainy-game-word-vector-illustration-design.jpg?s=612x612&w=0&k=20&c=mBQMqQ6kZuC9ZyuV5_uCm80QspqSJ7vRm0MfwL3KLZY=" alt="Card image">
           <div class="card-body">
-            <h4 id="ingilizce" class="card-title"></h4>
-            <p id="turkce" class="card-text"></p>
+            <h4 id="ingilizce" class="card-title">OGRENDIKLERINI TEST ET!</h4>
+            <p id="turkce" class="card-text">ASAGIDAKI BUTONA TIKLAYARAK SINAVA BASLAYABILIRSIN!</p>
             <p2 id="cumle" class="card-text"></p2>
+            
           </div>
         </div>
       </div>
+      
       <div class="d-flex align-items-center justify-content-center">
-        <input type="text" id="sinavInput"  placeholder="TURKCE KARSILIGI" style="display: none;">
-      </div>
-      <div class="d-flex align-items-center justify-content-center">
-        <button id="next" class="buttonClass">Devam</button>
+        <button id="baslat" class="buttonClass">Baslat</button>
       </div>
       
 </body>
+<script>
+  const baslat = document.getElementById('baslat');
+  baslat.addEventListener('click',function(event){
+    window.location.href = "sinav.html";
+  })
+</script>
 </html>

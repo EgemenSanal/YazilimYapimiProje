@@ -1,9 +1,12 @@
+//Databaseden gerekli bilgileri importlama
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
 
 import { getAuth,sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
 
 
 
+//database configi
 
 const firebaseConfig = {
 
@@ -24,7 +27,7 @@ const firebaseConfig = {
 };
 
 
-// Initialize Firebase
+// Firebase'i baslatma
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
@@ -33,7 +36,7 @@ const forgotPasswordButton = document.getElementById('forgotPasswordLabel');
 
 
 forgotPasswordLabel = document.getElementById('forgotPasswordLabel');
-
+//kullaniciya sifre yenileme maili gonderen modul
 forgotPasswordLabel.addEventListener('click',function(event){
     const email = document.getElementById('gmail').value;
     sendPasswordResetEmail(auth,email)
