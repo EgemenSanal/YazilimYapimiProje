@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
 
-import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
+import { getAuth} from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
 import { getDatabase, ref, set, get, child, onValue} from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
 
 
@@ -32,10 +32,13 @@ const db = getDatabase(app);
 
 const devamButton = document.getElementById('next');
 var sayac3 = 1;
+
+const girilenValue = document.getElementById('sinavInput').value;
+const devamInput = document.getElementById('sinavInput');
+
 var dogru = 0;
 var yanlis = 0;
 devamButton.addEventListener('click',function(event){
-  const girilenValue = document.getElementById('sinavInput').value;
     const dbRef = ref(db);
     get(child(dbRef,'words/' + sayac3)).then((snapshot) =>{
         if(snapshot.exists()){
@@ -57,9 +60,9 @@ devamButton.addEventListener('click',function(event){
 kelimeElemani4.innerHTML = `
   <img src="${snapshot.val().resimUrl}" alt="${snapshot.val().ingKelime}" class="card-img-top">
   `;
-
-kelimelerListesi.innerHTML = ""; // Önceki kelimeyi temizleyin
-kelimelerListesi.appendChild(kelimeElemani4);
+  devamInput.style.display = "block";
+  kelimelerListesi.innerHTML = ""; // Önceki kelimeyi temizleyin
+  kelimelerListesi.appendChild(kelimeElemani4);
   kelimelerListesi.appendChild(kelimeElemani);
   kelimelerListesi.appendChild(kelimeElemani2);
 
