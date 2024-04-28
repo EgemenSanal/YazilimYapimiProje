@@ -42,10 +42,28 @@ const devamInput = document.getElementById('sinavInput');
 
 var dogru = 0;
 var yanlis = 0;
+const dbRef = ref(db); //kelimelerin saklandigi dizinin referansi
+var sayac4 = 1;
+const kontrolButon = document.getElementById('check');
+kontrolButon.addEventListener('click',function(event){
+  get(child(dbRef,'words/' + sayac4)).then((snapshot) =>{
+    if(snapshot.exists()){
+      if( document.getElementById('sinavInput').value == snapshot.val().turkceKarsiligi){
+        dogru = dogru +1;
+    }else{
+        yanlis = yanlis +1;
+    }
+    sayac4 = sayac4+1;
+    }else{
+      
+        alert('Dogru sayisi = ' + dogru + ' Yanlis sayisi = ' + yanlis);
+    }
+})
+})
+
 //sinav modulu
 //kelimeleri tek tek getiren modul
 devamButton.addEventListener('click',function(event){
-    const dbRef = ref(db); //kelimelerin saklandigi dizinin referansi
     get(child(dbRef,'words/' + sayac3)).then((snapshot) =>{
         if(snapshot.exists()){
            // kelimelerin gelecegi html elemanlarini yaratma
@@ -75,15 +93,10 @@ kelimeElemani4.innerHTML = `
 
 
   
-if(girilenValue == snapshot.val().turkceKarsiligi){
-    dogru = dogru +1;
-}else{
-    yanlis = yanlis +1;
-}
+
 
   sayac3 = sayac3+1;
         }else{
-            alert('Dogru sayisi = ' + dogru + ' Yanlis sayisi = ' + yanlis);
             window.location.href = "app.html";
         }
     })
