@@ -39,7 +39,7 @@ var sayac3 = 2;
 
 const girilenValue = document.getElementById('sinavInput').value;
 const devamInput = document.getElementById('sinavInput');
-
+const yazdirButton = document.getElementById('yazdir');
 var dogru = 0;
 var yanlis = 0;
 const dbRef = ref(db); //kelimelerin saklandigi dizinin referansi
@@ -65,6 +65,8 @@ kontrolButon.addEventListener('click',function(event){
 })
 //sayfa acilinca ilk kelimenin cikmasini saglayan fonksiyon
 window.onload = function(){
+  yazdirButton.style.display = "none";
+
   get(child(dbRef,'words/' + 1)).then((snapshot) =>{
     if(snapshot.exists()){
        // kelimelerin gelecegi html elemanlarini yaratma
@@ -130,6 +132,7 @@ kelimeElemani4.innerHTML = `
 
 
   sayac3 = sayac3+1;
+  //sinav bitince gelen analiz fonksiyonu
         }else{
           devamButton.style.display = "none";
           devamInput.style.display = "none";
@@ -137,6 +140,7 @@ kelimeElemani4.innerHTML = `
           const kelimeElemani = document.createElement('kelime-ingilizce');
             const kelimeElemani2 = document.createElement('kelime-turkceGiri');
             const kelimeElemani4 = document.createElement('kelime-resim');
+
             const kelimelerListesi = document.getElementById('cardID');
           kelimeElemani.innerHTML = `
           <h4> DOGRU SAYISI ${dogru}</h4>
@@ -147,12 +151,12 @@ kelimeElemani4.innerHTML = `
       kelimeElemani4.innerHTML = `
         <p> YANLIS SAYISI = ${yanlis} </p>
         `;
+       
         kelimelerListesi.innerHTML = ""; // Önceki kelimeyi temizleyin
   kelimelerListesi.appendChild(kelimeElemani4);
   kelimelerListesi.appendChild(kelimeElemani);
   kelimelerListesi.appendChild(kelimeElemani2);
-    
+          yazdirButton.style.display = "block";
         }
     })
 })
-
