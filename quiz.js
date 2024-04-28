@@ -45,13 +45,16 @@ var yanlis = 0;
 const dbRef = ref(db); //kelimelerin saklandigi dizinin referansi
 var sayac4 = 1;
 const kontrolButon = document.getElementById('check');
+//kullanicinin girdigi kelimenin dogrulugunu kontrol eden fonksiyon
 kontrolButon.addEventListener('click',function(event){
   get(child(dbRef,'words/' + sayac4)).then((snapshot) =>{
     if(snapshot.exists()){
       if( document.getElementById('sinavInput').value == snapshot.val().turkceKarsiligi){
         dogru = dogru +1;
+        alert('DOGRU!')
     }else{
         yanlis = yanlis +1;
+        alert("YANLIS! DOGRU CEVAP = " + snapshot.val().turkceKarsiligi);
     }
     sayac4 = sayac4+1;
     }else{
@@ -60,7 +63,7 @@ kontrolButon.addEventListener('click',function(event){
     }
 })
 })
-
+//sayfa acilinca ilk kelimenin cikmasini saglayan fonksiyon
 window.onload = function(){
   get(child(dbRef,'words/' + 1)).then((snapshot) =>{
     if(snapshot.exists()){
@@ -88,12 +91,6 @@ kelimelerListesi.innerHTML = ""; // Önceki kelimeyi temizleyin
 kelimelerListesi.appendChild(kelimeElemani4);
 kelimelerListesi.appendChild(kelimeElemani);
 kelimelerListesi.appendChild(kelimeElemani2);
-
-
-
-
-
-
     }
 })
 }
