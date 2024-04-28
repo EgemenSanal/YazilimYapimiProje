@@ -55,8 +55,8 @@ kontrolButon.addEventListener('click',function(event){
     }
     sayac4 = sayac4+1;
     }else{
-      
-        alert('Dogru sayisi = ' + dogru + ' Yanlis sayisi = ' + yanlis);
+      window.location.href = "app.html";
+        
     }
 })
 })
@@ -83,7 +83,7 @@ devamButton.addEventListener('click',function(event){
     <h4>${snapshot.val().ingKelime}</h4>
   `;
 kelimeElemani4.innerHTML = `
-  <img src="${snapshot.val().resimUrl}" alt="${snapshot.val().ingKelime}" class="card-img-top">
+  <img src="https://media.istockphoto.com/id/505920740/vector/good-luck.jpg?s=612x612&w=0&k=20&c=PmRCMmgHs59P6gu6uoe-tSDEnJ73Z4Os9vqLWA9mscI=" alt="${snapshot.val().ingKelime}" class="card-img-top">
   `;
   devamInput.style.display = "block";
   kelimelerListesi.innerHTML = ""; // Önceki kelimeyi temizleyin
@@ -97,7 +97,27 @@ kelimeElemani4.innerHTML = `
 
   sayac3 = sayac3+1;
         }else{
-            window.location.href = "app.html";
+          devamButton.style.display = "none";
+          devamInput.style.display = "none";
+
+          const kelimeElemani = document.createElement('kelime-ingilizce');
+            const kelimeElemani2 = document.createElement('kelime-turkceGiri');
+            const kelimeElemani4 = document.createElement('kelime-resim');
+            const kelimelerListesi = document.getElementById('cardID');
+          kelimeElemani.innerHTML = `
+          <h4> DOGRU SAYISI ${dogru}</h4>
+        `;
+        kelimeElemani2.innerHTML = `
+  <img src="https://www.dmu.ac.uk/webimages/DMU-students/Hot-topics/2022/September/resit-thumb.jpg" alt="sonuc" class="card-img-top">
+  `;
+      kelimeElemani4.innerHTML = `
+        <p> YANLIS SAYISI = ${yanlis} </p>
+        `;
+        kelimelerListesi.innerHTML = ""; // Önceki kelimeyi temizleyin
+  kelimelerListesi.appendChild(kelimeElemani4);
+  kelimelerListesi.appendChild(kelimeElemani);
+  kelimelerListesi.appendChild(kelimeElemani2);
+    
         }
     })
 })
