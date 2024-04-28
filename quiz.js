@@ -35,7 +35,7 @@ const auth = getAuth(app);
 const db = getDatabase(app);
 
 const devamButton = document.getElementById('next');
-var sayac3 = 1;
+var sayac3 = 2;
 
 const girilenValue = document.getElementById('sinavInput').value;
 const devamInput = document.getElementById('sinavInput');
@@ -60,6 +60,43 @@ kontrolButon.addEventListener('click',function(event){
     }
 })
 })
+
+window.onload = function(){
+  get(child(dbRef,'words/' + 1)).then((snapshot) =>{
+    if(snapshot.exists()){
+       // kelimelerin gelecegi html elemanlarini yaratma
+        const kelimeElemani = document.createElement('kelime-ingilizce');
+        const kelimeElemani2 = document.createElement('kelime-turkceGiri');
+        const kelimeElemani3 = document.createElement('kelime-cumle');
+        const kelimeElemani4 = document.createElement('kelime-resim');
+        const kelimelerListesi = document.getElementById('cardID');
+        kelimelerListesi.innerHTML = "";
+        kelimelerListesi.appendChild(kelimeElemani);
+        kelimelerListesi.appendChild(kelimeElemani2);
+        kelimelerListesi.appendChild(kelimeElemani3);
+        kelimelerListesi.appendChild(kelimeElemani4);
+
+
+        kelimeElemani.innerHTML = `
+<h4>${snapshot.val().ingKelime}</h4>
+`;
+kelimeElemani4.innerHTML = `
+<img src="https://media.istockphoto.com/id/505920740/vector/good-luck.jpg?s=612x612&w=0&k=20&c=PmRCMmgHs59P6gu6uoe-tSDEnJ73Z4Os9vqLWA9mscI=" alt="${snapshot.val().ingKelime}" class="card-img-top">
+`;
+devamInput.style.display = "block";
+kelimelerListesi.innerHTML = ""; // Önceki kelimeyi temizleyin
+kelimelerListesi.appendChild(kelimeElemani4);
+kelimelerListesi.appendChild(kelimeElemani);
+kelimelerListesi.appendChild(kelimeElemani2);
+
+
+
+
+
+
+    }
+})
+}
 
 //sinav modulu
 //kelimeleri tek tek getiren modul
