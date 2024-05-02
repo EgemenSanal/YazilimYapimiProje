@@ -35,17 +35,71 @@ const auth = getAuth(app);
 const db = getDatabase(app);
 
 const devamButton = document.getElementById('next');
-var sayac3 = 1;
+var sayac3 = 2;
 
 const girilenValue = document.getElementById('sinavInput').value;
 const devamInput = document.getElementById('sinavInput');
-
+const yazdirButton = document.getElementById('yazdir');
 var dogru = 0;
 var yanlis = 0;
+const dbRef = ref(db); //kelimelerin saklandigi dizinin referansi
+var sayac4 = 1;
+const kontrolButon = document.getElementById('check');
+//kullanicinin girdigi kelimenin dogrulugunu kontrol eden fonksiyon
+kontrolButon.addEventListener('click',function(event){
+  get(child(dbRef,'words/' + sayac4)).then((snapshot) =>{
+    if(snapshot.exists()){
+      if( document.getElementById('sinavInput').value == snapshot.val().turkceKarsiligi){
+        dogru = dogru +1;
+        alert('DOGRU!')
+    }else{
+        yanlis = yanlis +1;
+        alert("YANLIS! DOGRU CEVAP = " + snapshot.val().turkceKarsiligi);
+    }
+    sayac4 = sayac4+1;
+    }else{
+      window.location.href = "app.html";
+        
+    }
+})
+})
+//sayfa acilinca ilk kelimenin cikmasini saglayan fonksiyon
+window.onload = function(){
+  yazdirButton.style.display = "none";
+
+  get(child(dbRef,'words/' + 1)).then((snapshot) =>{
+    if(snapshot.exists()){
+       // kelimelerin gelecegi html elemanlarini yaratma
+        const kelimeElemani = document.createElement('kelime-ingilizce');
+        const kelimeElemani2 = document.createElement('kelime-turkceGiri');
+        const kelimeElemani3 = document.createElement('kelime-cumle');
+        const kelimeElemani4 = document.createElement('kelime-resim');
+        const kelimelerListesi = document.getElementById('cardID');
+        kelimelerListesi.innerHTML = "";
+        kelimelerListesi.appendChild(kelimeElemani);
+        kelimelerListesi.appendChild(kelimeElemani2);
+        kelimelerListesi.appendChild(kelimeElemani3);
+        kelimelerListesi.appendChild(kelimeElemani4);
+
+
+        kelimeElemani.innerHTML = `
+<h4>${snapshot.val().ingKelime}</h4>
+`;
+kelimeElemani4.innerHTML = `
+<img src="https://media.istockphoto.com/id/505920740/vector/good-luck.jpg?s=612x612&w=0&k=20&c=PmRCMmgHs59P6gu6uoe-tSDEnJ73Z4Os9vqLWA9mscI=" alt="${snapshot.val().ingKelime}" class="card-img-top">
+`;
+devamInput.style.display = "block";
+kelimelerListesi.innerHTML = ""; // Önceki kelimeyi temizleyin
+kelimelerListesi.appendChild(kelimeElemani4);
+kelimelerListesi.appendChild(kelimeElemani);
+kelimelerListesi.appendChild(kelimeElemani2);
+    }
+})
+}
+
 //sinav modulu
 //kelimeleri tek tek getiren modul
 devamButton.addEventListener('click',function(event){
-    const dbRef = ref(db); //kelimelerin saklandigi dizinin referansi
     get(child(dbRef,'words/' + sayac3)).then((snapshot) =>{
         if(snapshot.exists()){
            // kelimelerin gelecegi html elemanlarini yaratma
@@ -65,7 +119,7 @@ devamButton.addEventListener('click',function(event){
     <h4>${snapshot.val().ingKelime}</h4>
   `;
 kelimeElemani4.innerHTML = `
-  <img src="${snapshot.val().resimUrl}" alt="${snapshot.val().ingKelime}" class="card-img-top">
+  <img src="https://media.istockphoto.com/id/505920740/vector/good-luck.jpg?s=612x612&w=0&k=20&c=PmRCMmgHs59P6gu6uoe-tSDEnJ73Z4Os9vqLWA9mscI=" alt="${snapshot.val().ingKelime}" class="card-img-top">
   `;
   devamInput.style.display = "block";
   kelimelerListesi.innerHTML = ""; // Önceki kelimeyi temizleyin
@@ -75,17 +129,34 @@ kelimeElemani4.innerHTML = `
 
 
   
-if(girilenValue == snapshot.val().turkceKarsiligi){
-    dogru = dogru +1;
-}else{
-    yanlis = yanlis +1;
-}
+
 
   sayac3 = sayac3+1;
+  //sinav bitince gelen analiz fonksiyonu
         }else{
-            alert('Dogru sayisi = ' + dogru + ' Yanlis sayisi = ' + yanlis);
-            window.location.href = "app.html";
+          devamButton.style.display = "none";
+          devamInput.style.display = "none";
+
+          const kelimeElemani = document.createElement('kelime-ingilizce');
+            const kelimeElemani2 = document.createElement('kelime-turkceGiri');
+            const kelimeElemani4 = document.createElement('kelime-resim');
+
+            const kelimelerListesi = document.getElementById('cardID');
+          kelimeElemani.innerHTML = `
+          <h4> DOGRU SAYISI ${dogru}</h4>
+        `;
+        kelimeElemani2.innerHTML = `
+  <img src="https://www.dmu.ac.uk/webimages/DMU-students/Hot-topics/2022/September/resit-thumb.jpg" alt="sonuc" class="card-img-top">
+  `;
+      kelimeElemani4.innerHTML = `
+        <p> YANLIS SAYISI = ${yanlis} </p>
+        `;
+       
+        kelimelerListesi.innerHTML = ""; // Önceki kelimeyi temizleyin
+  kelimelerListesi.appendChild(kelimeElemani4);
+  kelimelerListesi.appendChild(kelimeElemani);
+  kelimelerListesi.appendChild(kelimeElemani2);
+          yazdirButton.style.display = "block";
         }
     })
 })
-
