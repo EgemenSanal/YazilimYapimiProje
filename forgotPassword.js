@@ -18,11 +18,11 @@ const firebaseConfig = {
 
   projectId: "fir-login-63cd9",
 
-  storageBucket: "fir-login-63cd9.appspot.com",
+  storageBucket: "fir-login-63cd9.appspot.com", //DATABASE AD
 
   messagingSenderId: "73596038394",
 
-  appId: "1:73596038394:web:474094adb57d07990bed43"
+  appId: "1:73596038394:web:474094adb57d07990bed43" // DATABASE ID
 
 };
 

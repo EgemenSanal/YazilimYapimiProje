@@ -9,7 +9,7 @@ document.getElementById('setting-icon').addEventListener('click', function() {
   
     if (dropdownMenu.classList.contains('show')) {
       document.addEventListener('click', function(event) {
-        if (!event.target.closest('#setting-icon, .dropdown-menu')) {
+        if (!event.target.closest('#setting-icon, .dropdown-menu')) { //CLASS
           dropdownMenu.classList.remove('show');
         }
       });
