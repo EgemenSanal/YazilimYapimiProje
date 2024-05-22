@@ -1,13 +1,13 @@
-//Databaseden gerekli bilgileri importlama
 
+//Databaseden gerekli bilgileri importlama
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
 
 import { getAuth} from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
 import { getDatabase, ref, set, get, child, onValue} from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
 
 
-//database configi
 
+//database configi
 
 const firebaseConfig = {
 
