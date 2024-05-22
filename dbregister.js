@@ -26,6 +26,9 @@ const firebaseConfig = {
 };
 
 
+
+
+
 // Firebase'i baslatma
 
 const app = initializeApp(firebaseConfig);
@@ -35,6 +38,9 @@ const db = getDatabase(app);
 const submit = document.getElementById('submit');
 
 const username = document.getElementById('username').value;
+
+
+
 
 submit.addEventListener("click",function(event){
     
