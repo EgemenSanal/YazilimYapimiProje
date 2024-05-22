@@ -71,6 +71,8 @@ kelimeGetir.addEventListener('click',function(event){
             const kelimeElemani3 = document.createElement('kelime-cumle');
             const kelimeElemani4 = document.createElement('kelime-resim');
             const kelimelerListesi = document.getElementById('cardID');
+            
+
             kelimelerListesi.innerHTML = "";
             kelimelerListesi.appendChild(kelimeElemani);
             kelimelerListesi.appendChild(kelimeElemani2);
