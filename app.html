@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+  <!--hazır kütüphane fontlar-->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,7 +29,7 @@
       <script type="module" src="dblogin.js" defer></script>
       <script type="module" src="kelimeDatabase.js" defer></script>
 </head>
-
+ <!--menüler-->
 <body>
     <video autoplay loop muted>
         <source src="2646392-hd_1920_1080_30fps.mp4">        
@@ -38,17 +39,17 @@
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
             
-            <div class="material-symbols-outlined" id="setting-icon">
+            <div class="material-symbols-outlined" id="setting-icon" title="Yeni Kelime Ekle" >
                 add
             </div>
-            <div class="material-symbols-outlined" id="setting-icon" onclick="sinavPage()" >
+            <div class="material-symbols-outlined" id="setting-icon" onclick="sinavPage()" title="Quize Başla" >
               quiz
             </div>
           </a>
           <h1 class="header2" data-bs-toggle="collapse" style="font-size: 25px;">
           <a href="app.html" id="anaSayfayaDon" class="header3">INGILIZCE KELIME OGREN</a>
         </h1>
-          <a class="navbar-brand" href="index.html" id="logout">
+          <a class="navbar-brand" href="index.html" id="logout" title="Çıkış Yap">
             <span class="material-symbols-outlined">
                 logout
                 </span>
@@ -99,7 +100,7 @@
         </div>
       <script src="dropdown.js"></script>
 </body>
-
+<!--sinavOnaya yönlendirildi-->
 <script>
   function sinavPage(){
     window.location.href = "sinavOnay.html";
