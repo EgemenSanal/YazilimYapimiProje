@@ -63,6 +63,8 @@ kontrolButon.addEventListener('click',function(event){
     }
 })
 })
+
+
 //sayfa acilinca ilk kelimenin cikmasini saglayan fonksiyon
 window.onload = function(){
   yazdirButton.style.display = "none";
@@ -98,6 +100,7 @@ kelimelerListesi.appendChild(kelimeElemani2);
 }
 
 //sinav modulu
+
 //kelimeleri tek tek getiren modul
 devamButton.addEventListener('click',function(event){
     get(child(dbRef,'words/' + sayac3)).then((snapshot) =>{
