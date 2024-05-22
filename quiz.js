@@ -1,13 +1,13 @@
-//Databaseden gerekli bilgileri importlama
 
+//Databaseden gerekli bilgileri importlama
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
 
 import { getAuth} from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
 import { getDatabase, ref, set, get, child, onValue} from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
 
 
-//database configi
 
+//database configi
 
 const firebaseConfig = {
 
@@ -63,6 +63,8 @@ kontrolButon.addEventListener('click',function(event){
     }
 })
 })
+
+
 //sayfa acilinca ilk kelimenin cikmasini saglayan fonksiyon
 window.onload = function(){
   yazdirButton.style.display = "none";
@@ -98,6 +100,7 @@ kelimelerListesi.appendChild(kelimeElemani2);
 }
 
 //sinav modulu
+
 //kelimeleri tek tek getiren modul
 devamButton.addEventListener('click',function(event){
     get(child(dbRef,'words/' + sayac3)).then((snapshot) =>{

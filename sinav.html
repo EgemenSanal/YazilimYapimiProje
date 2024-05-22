@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="style.css">
     <style>
         video {
-            position: fixed;
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
@@ -41,7 +41,7 @@
             
           </a>
           <h1 class="header2" data-bs-toggle="collapse" style="font-size: 25px;">
-          <a href="app.html" id="anaSayfayaDon" class="header3">INGILIZCE KELIME OGREN</a>
+          <a href="app.html" id="anaSayfayaDon" class="header3">INGILIZCE KELiME ÖĞREN</a>
         </h1>
           <a class="navbar-brand" href="index.html" id="logout">
             <span class="material-symbols-outlined">
@@ -73,11 +73,13 @@
         <button id="next" class="buttonClass">Devam</button>
       </div>
       <div class="d-flex align-items-center justify-content-center">
+
         <button id="yazdir" class="buttonClass" onclick="analizYAzdir()">YAZDIR</button>
       </div>
 </body>
 <script>
   //analiz raporunu yazdirma fonksiyonu
+
 function analizYAzdir(){
   window.print();
 }
